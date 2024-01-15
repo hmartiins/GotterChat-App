@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:gotter_chat/app/commons/adapters/localizations/translate_app.dart';
 import 'package:gotter_chat/app/commons/styles/tokens.dart';
 import 'package:gotter_chat/app/commons/widgets/complex/screen.dart';
 import 'package:gotter_chat/app/commons/widgets/form/app_button.dart';
@@ -19,7 +20,7 @@ class OnboardingPage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: Tp.size.ref24),
               child: Text(
-                'Start a Fun\nCommunication',
+                intl(context, 'onboarding.title'),
                 style: TextStyle(
                   fontSize: Tp.size.ref32,
                   fontWeight: FontWeight.w600,
@@ -36,7 +37,7 @@ class OnboardingPage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(Tp.size.ref24),
               child: AppButton(
-                label: 'Create an account',
+                label: intl(context, 'onboarding.button'),
                 onPressed: () {
                   Modular.to.navigate('/');
                 },

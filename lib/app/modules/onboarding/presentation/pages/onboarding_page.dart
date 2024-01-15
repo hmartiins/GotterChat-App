@@ -21,7 +21,7 @@ class OnboardingPage extends StatelessWidget {
               child: Text(
                 'Start a Fun\nCommunication',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: Tp.size.ref32,
                   fontWeight: FontWeight.w600,
                   color: Tp.colors.blue,
                 ),

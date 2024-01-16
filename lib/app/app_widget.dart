@@ -22,6 +22,7 @@ class AppWidget extends StatelessWidget {
         ),
         routeInformationParser: Modular.routeInformationParser,
         routerDelegate: Modular.routerDelegate,
+        locale: const Locale('pt'),
         supportedLocales: const [
           Locale('en', 'US'),
           Locale('pt', 'BR'),

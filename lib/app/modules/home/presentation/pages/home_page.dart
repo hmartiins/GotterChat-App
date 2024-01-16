@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gotter_chat/app/commons/adapters/localizations/translate_app.dart';
 import 'package:gotter_chat/app/commons/styles/tokens.dart';
 import 'package:gotter_chat/app/commons/widgets/complex/screen.dart';
 
@@ -12,12 +13,12 @@ class HomePage extends StatelessWidget {
         padding: EdgeInsets.all(Tp.space.ref28),
         child: Column(
           children: [
-            SizedBox(height: Tp.space.ref12),
+            SizedBox(height: Tp.space.ref24),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Gotter',
+                  intl(context, 'application-name'),
                   style: TextStyle(
                     fontWeight: Tp.fontWeights.bold,
                     fontSize: 22,
@@ -38,50 +39,45 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(height: Tp.size.ref16),
             DefaultTabController(
               initialIndex: 1,
-              length: 3,
+              length: 2,
               child: Column(
                 children: [
-                  DefaultTabController(
-                    initialIndex: 1,
-                    length: 2,
-                    child: Column(
-                      children: [
-                        TabBar(
-                          tabs: const <Widget>[
-                            Tab(
-                              text: 'Messages',
-                            ),
-                            Tab(
-                              text: 'Group',
-                            ),
-                          ],
-                          labelColor: Colors.cyan,
-                          indicator: const UnderlineTabIndicator(),
-                          indicatorColor: Tp.colors.gray70,
-                          indicatorSize: TabBarIndicatorSize.tab,
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: Tp.colors.grey10,
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: TabBar(
+                      tabs: [
+                        Tab(
+                          text: intl(context, 'home.tab-messages'),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            left: 22.0,
-                            right: 22.0,
-                            top: 16,
-                          ),
-                          child: SizedBox(
-                            width: MediaQuery.of(context).size.width,
-                            height: 260,
-                            child: const TabBarView(
-                              children: [
-                                Text('Especificações'),
-                                Text('Especificações'),
-                              ],
-                            ),
-                          ),
-                        )
+                        Tab(
+                          text: intl(context, 'home.tab-group'),
+                        ),
                       ],
+                      labelColor: Tp.colors.white,
+                      indicator: BoxDecoration(
+                        color: Tp.colors.grey,
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      indicatorColor: Tp.colors.gray70,
+                      indicatorSize: TabBarIndicatorSize.tab,
                     ),
                   ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: 260,
+                    child: const TabBarView(
+                      children: [
+                        Text('Gotter'),
+                        Text('Gotter'),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),

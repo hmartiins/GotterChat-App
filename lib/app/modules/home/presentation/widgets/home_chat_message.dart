@@ -22,7 +22,10 @@ class HomeChatMessage extends StatelessWidget {
       child: InkWell(
         onTap: () {},
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: Tp.size.ref12),
+          padding: EdgeInsets.symmetric(
+            vertical: Tp.size.ref12,
+            horizontal: Tp.size.ref24,
+          ),
           child: Row(
             children: [
               Stack(

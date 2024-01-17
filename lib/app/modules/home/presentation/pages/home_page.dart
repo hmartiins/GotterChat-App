@@ -12,34 +12,37 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Screen(
       child: Padding(
-        padding: EdgeInsets.all(Tp.space.ref28),
+        padding: EdgeInsets.symmetric(vertical: Tp.space.ref28),
         child: Column(
           children: [
             SizedBox(height: Tp.space.ref24),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  intl(context, 'application-name'),
-                  style: TextStyle(
-                    fontWeight: Tp.fontWeights.bold,
-                    fontSize: 22,
-                    color: Tp.colors.blue,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: Tp.space.ref28),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    intl(context, 'application-name'),
+                    style: TextStyle(
+                      fontWeight: Tp.fontWeights.bold,
+                      fontSize: 22,
+                      color: Tp.colors.blue,
+                    ),
                   ),
-                ),
-                Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.search),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.settings),
-                    ),
-                  ],
-                ),
-              ],
+                  Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.search),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.settings),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
             SizedBox(height: Tp.size.ref16),
             HomeTabBar(

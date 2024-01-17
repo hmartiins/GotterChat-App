@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:gotter_chat/app/commons/styles/tokens.dart';
 
 class HomeChatMessage extends StatelessWidget {
@@ -20,7 +21,9 @@ class HomeChatMessage extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Modular.to.navigate('/chat');
+        },
         child: Padding(
           padding: EdgeInsets.symmetric(
             vertical: Tp.size.ref12,

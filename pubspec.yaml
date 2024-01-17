@@ -41,6 +41,7 @@ dependencies:
   google_fonts: ^6.1.0
   flutter_mobx: ^2.2.0+2
   mobx: ^2.3.0+1
+  flutter_svg: ^2.0.9
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,7 @@ flutter:
   assets:
     - .env
     - assets/onboarding/characters.png
+    - assets/home/chat.svg
     - assets/lang/
 
   #An image asset can refer to one or more resolution-specific "variants", see

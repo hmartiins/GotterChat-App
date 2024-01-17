@@ -3,7 +3,14 @@ import 'package:gotter_chat/app/commons/adapters/localizations/translate_app.dar
 import 'package:gotter_chat/app/commons/styles/tokens.dart';
 
 class HomeTabBar extends StatefulWidget {
-  const HomeTabBar({super.key});
+  const HomeTabBar({
+    required this.messageChild,
+    required this.groupChild,
+    super.key,
+  });
+
+  final Widget messageChild;
+  final Widget groupChild;
 
   @override
   State<HomeTabBar> createState() => _HomeTabBarState();
@@ -48,9 +55,12 @@ class _HomeTabBarState extends State<HomeTabBar> {
           Builder(
             builder: (_) {
               if (_selectedTabbar == 0) {
-                return const Text("Tab");
+                return SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: widget.messageChild,
+                );
               } else {
-                return const Text("Tab2");
+                return widget.groupChild;
               }
             },
           ),

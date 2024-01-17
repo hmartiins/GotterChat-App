@@ -5,11 +5,12 @@ class AppButton extends FilledButton {
   AppButton({
     required VoidCallback onPressed,
     required String label,
+    double width = double.infinity,
     bool isDisabled = false,
     super.key,
   }) : super(
           style: TextButton.styleFrom(
-            minimumSize: Size(double.infinity, Tp.size.ref48),
+            minimumSize: Size(width, Tp.size.ref48),
             backgroundColor: Tp.colors.blue,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(Tp.radii.ref4),

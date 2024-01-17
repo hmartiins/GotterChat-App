@@ -118,6 +118,7 @@ class _TpDuration {
 class _TpSizes {
   _TpSizes._();
   final ref2 = 2.00;
+  final ref8 = 8.00;
   final ref16 = 16.00;
   final ref22 = 22.00;
   final ref24 = 24.00;

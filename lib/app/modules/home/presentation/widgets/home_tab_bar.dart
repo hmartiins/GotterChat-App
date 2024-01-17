@@ -26,13 +26,13 @@ class _HomeTabBarState extends State<HomeTabBar> {
       length: 2,
       child: Column(
         children: [
-          DecoratedBox(
-            decoration: BoxDecoration(
-              color: Tp.colors.grey10,
-              borderRadius: BorderRadius.circular(100),
-            ),
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: Tp.space.ref28),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: Tp.space.ref28),
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: Tp.colors.grey10,
+                borderRadius: BorderRadius.circular(100),
+              ),
               child: TabBar(
                 onTap: (index) => setState(() {
                   _selectedTabbar = index;

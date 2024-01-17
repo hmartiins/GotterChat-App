@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gotter_chat/app/commons/adapters/localizations/translate_app.dart';
 import 'package:gotter_chat/app/commons/styles/tokens.dart';
 import 'package:gotter_chat/app/commons/widgets/complex/screen.dart';
-import 'package:gotter_chat/app/modules/home/presentation/widgets/home_empty_messages.dart';
+import 'package:gotter_chat/app/modules/home/presentation/widgets/home_chat_message.dart';
 import 'package:gotter_chat/app/modules/home/presentation/widgets/home_tab_bar.dart';
 
 class HomePage extends StatelessWidget {
@@ -42,9 +42,21 @@ class HomePage extends StatelessWidget {
               ],
             ),
             SizedBox(height: Tp.size.ref16),
-            const HomeTabBar(
-              messageChild: HomeEmptyMessages(),
-              groupChild: Text('teste2'),
+            HomeTabBar(
+              messageChild: Padding(
+                padding: EdgeInsets.symmetric(vertical: Tp.size.ref12),
+                child: const Column(
+                  children: [
+                    HomeChatMessage(
+                      name: 'Henrique',
+                      imageUrl: 'assets/home/char.png',
+                      hourOfLastMessage: '12:00',
+                      quantityOfUnreadMessages: '3',
+                    ),
+                  ],
+                ),
+              ),
+              groupChild: const Text('teste2'),
             ),
           ],
         ),

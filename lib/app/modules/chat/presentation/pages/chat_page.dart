@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gotter_chat/app/commons/enums/message_type.dart';
 import 'package:gotter_chat/app/commons/styles/tokens.dart';
 import 'package:gotter_chat/app/commons/widgets/complex/screen.dart';
+import 'package:gotter_chat/app/modules/chat/presentation/widgets/input_message_chat.dart';
 import 'package:gotter_chat/app/modules/chat/presentation/widgets/message_chat.dart';
 import 'package:gotter_chat/app/modules/chat/presentation/widgets/top_bar_chat.dart';
 
@@ -38,6 +39,10 @@ class ChatPage extends StatelessWidget {
                 ),
               ),
             ),
+            Expanded(
+              child: Container(),
+            ),
+            const InputMessageChat(),
           ],
         ),
       ),

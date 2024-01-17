@@ -42,6 +42,7 @@ dependencies:
   flutter_mobx: ^2.2.0+2
   mobx: ^2.3.0+1
   flutter_svg: ^2.0.9
+  emoji_picker_flutter: ^1.6.3
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:gotter_chat/app/commons/styles/tokens.dart';
+import 'package:gotter_chat/app/commons/widgets/ui/user_avatar.dart';
 
 class HomeChatMessage extends StatelessWidget {
   const HomeChatMessage({
@@ -31,25 +32,9 @@ class HomeChatMessage extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Stack(
-                alignment: Alignment.topRight,
-                children: [
-                  Image.asset(
-                    imageUrl,
-                    width: 50,
-                    height: 50,
-                  ),
-                  SizedBox(
-                    height: 12,
-                    width: 12,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: Tp.colors.green,
-                        borderRadius: BorderRadius.circular(50),
-                      ),
-                    ),
-                  ),
-                ],
+              UserAvatar(
+                imageUrl: imageUrl,
+                isOnline: true,
               ),
               SizedBox(width: Tp.size.ref10),
               Column(

@@ -17,12 +17,11 @@ class HomeTabBar extends StatefulWidget {
 }
 
 class _HomeTabBarState extends State<HomeTabBar> {
-  int _selectedTabbar = 1;
+  int _selectedTabbar = 0;
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      initialIndex: 1,
       length: 2,
       child: Column(
         children: [
@@ -50,7 +49,7 @@ class _HomeTabBarState extends State<HomeTabBar> {
                   color: Tp.colors.grey,
                   borderRadius: BorderRadius.circular(100),
                 ),
-                indicatorColor: Tp.colors.gray70,
+                indicatorColor: Tp.colors.grey70,
                 indicatorSize: TabBarIndicatorSize.tab,
               ),
             ),

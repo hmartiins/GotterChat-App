@@ -35,7 +35,7 @@ class _TpColors {
   final blue90 = const Color(0xffD5E4FB);
 
   final grey = const Color(0xff213241);
-  final gray70 = const Color(0xff424F63);
+  final grey70 = const Color(0xff424F63);
   final grey50 = const Color(0xff728197);
   final grey20 = const Color(0xff8593A8);
   final grey10 = const Color(0xffDBE2EC);

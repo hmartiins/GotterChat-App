@@ -16,7 +16,6 @@ class OnboardingPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: Tp.size.ref64),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: Tp.size.ref24),
               child: Text(

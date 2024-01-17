@@ -11,58 +11,54 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Screen(
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: Tp.space.ref28),
-        child: Column(
-          children: [
-            SizedBox(height: Tp.space.ref24),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: Tp.space.ref28),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    intl(context, 'application-name'),
-                    style: TextStyle(
-                      fontWeight: Tp.fontWeights.bold,
-                      fontSize: 22,
-                      color: Tp.colors.blue,
-                    ),
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: Tp.space.ref28),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  intl(context, 'application-name'),
+                  style: TextStyle(
+                    fontWeight: Tp.fontWeights.bold,
+                    fontSize: 22,
+                    color: Tp.colors.blue,
                   ),
-                  Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.search),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.settings),
-                      ),
-                    ],
+                ),
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.search),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.settings),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: Tp.size.ref16),
+          HomeTabBar(
+            messageChild: Padding(
+              padding: EdgeInsets.symmetric(vertical: Tp.size.ref12),
+              child: const Column(
+                children: [
+                  HomeChatMessage(
+                    name: 'Henrique',
+                    imageUrl: 'assets/home/char.png',
+                    hourOfLastMessage: '12:00',
+                    quantityOfUnreadMessages: '3',
                   ),
                 ],
               ),
             ),
-            SizedBox(height: Tp.size.ref16),
-            HomeTabBar(
-              messageChild: Padding(
-                padding: EdgeInsets.symmetric(vertical: Tp.size.ref12),
-                child: const Column(
-                  children: [
-                    HomeChatMessage(
-                      name: 'Henrique',
-                      imageUrl: 'assets/home/char.png',
-                      hourOfLastMessage: '12:00',
-                      quantityOfUnreadMessages: '3',
-                    ),
-                  ],
-                ),
-              ),
-              groupChild: const Text('teste2'),
-            ),
-          ],
-        ),
+            groupChild: const Text('teste2'),
+          ),
+        ],
       ),
     );
   }

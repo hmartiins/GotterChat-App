@@ -18,10 +18,10 @@ class ChatPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const TopBarChat(),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: Tp.size.ref16),
-              child: SingleChildScrollView(
-                child: Column(
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: Tp.size.ref16),
+                child: ListView(
                   children: [
                     const MessageChat(
                       message: 'Bibiane é linda',
@@ -35,12 +35,23 @@ class ChatPage extends StatelessWidget {
                       time: 15.19,
                       type: MessageType.sent,
                     ),
+                    SizedBox(height: Tp.size.ref8),
+                    const MessageChat(
+                      message: 'Bibiane é linda',
+                      time: 15.19,
+                      type: MessageType.received,
+                    ),
+                    SizedBox(height: Tp.size.ref8),
+                    const MessageChat(
+                      message:
+                          'O zezé também O zezé também O zezé também O zezé também',
+                      time: 15.19,
+                      type: MessageType.sent,
+                    ),
+                    SizedBox(height: Tp.size.ref8),
                   ],
                 ),
               ),
-            ),
-            Expanded(
-              child: Container(),
             ),
             const InputMessageChat(),
           ],

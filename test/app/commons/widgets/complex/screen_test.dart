@@ -21,7 +21,7 @@ void main() {
       expect(find.byType(DecoratedBox), findsOneWidget);
     });
 
-    testWidgets('should render the Screen widget with its default attributes',
+    testWidgets('should render the Screen widget with app bar attribute',
         (tester) async {
       const appBarTitle = 'Gotter Chat';
 

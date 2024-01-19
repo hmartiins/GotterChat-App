@@ -7,6 +7,12 @@ import 'package:gotter_chat/app/modules/chat/presentation/widgets/message_chat.d
 import 'package:gotter_chat/app/modules/chat/presentation/widgets/top_bar_chat.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
+class ChatMessage {
+  ChatMessage({required this.message, required this.type});
+  final String message;
+  final MessageType type;
+}
+
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
 
@@ -21,7 +27,7 @@ class _ChatPageState extends State<ChatPage> {
     ),
   );
 
-  final List<String> messagesRecived = [];
+  final List<ChatMessage> messagesRecived = [];
 
   @override
   Widget build(BuildContext context) {
@@ -41,16 +47,26 @@ class _ChatPageState extends State<ChatPage> {
                     final message = snapshot.data?.toString() ?? '';
 
                     if (snapshot.hasData) {
-                      messagesRecived.add(message);
+                      messagesRecived.add(
+                        ChatMessage(
+                          message: message,
+                          type: MessageType.received,
+                        ),
+                      );
                     }
                     return ListView.builder(
                       itemCount: messagesRecived.length,
                       itemBuilder: (context, index) {
-                        return MessageChat(
-                          message: messagesRecived[index],
-                          time:
-                              15.19, // Substitua isso pelo tempo real desejado
-                          type: MessageType.received,
+                        return Column(
+                          children: [
+                            MessageChat(
+                              message: messagesRecived[index].message,
+                              time:
+                                  '${DateTime.now().hour}:${DateTime.now().minute}',
+                              type: messagesRecived[index].type,
+                            ),
+                            SizedBox(height: Tp.size.ref12),
+                          ],
                         );
                       },
                     );
@@ -60,6 +76,14 @@ class _ChatPageState extends State<ChatPage> {
             ),
             InputMessageChat(
               channel: channel,
+              onSubmitted: (message) {
+                messagesRecived.add(
+                  ChatMessage(
+                    message: message,
+                    type: MessageType.sent,
+                  ),
+                );
+              },
             ),
           ],
         ),

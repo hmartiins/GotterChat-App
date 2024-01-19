@@ -10,7 +10,7 @@ class MessageChat extends StatelessWidget {
     super.key,
   });
 
-  final double? time;
+  final String? time;
   final String message;
   final MessageType type;
 
@@ -64,7 +64,7 @@ class MessageChat extends StatelessWidget {
                     children: [
                       SizedBox(height: Tp.size.ref4),
                       Text(
-                        '15:19 PM',
+                        time!,
                         style: TextStyle(
                           color: Tp.colors.grey50,
                           fontSize: 12,

@@ -5,9 +5,11 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 class InputMessageChat extends StatelessWidget {
   const InputMessageChat({
     required this.channel,
+    required this.onSubmitted,
     super.key,
   });
   final WebSocketChannel channel;
+  final Function(String) onSubmitted;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,7 @@ class InputMessageChat extends StatelessWidget {
                 ),
                 onSubmitted: (value) => {
                   channel.sink.add(value),
+                  onSubmitted(value),
                 },
               ),
             ),

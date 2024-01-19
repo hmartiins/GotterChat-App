@@ -43,6 +43,7 @@ dependencies:
   mobx: ^2.3.0+1
   flutter_svg: ^2.0.9
   emoji_picker_flutter: ^1.6.3
+  web_socket_channel: ^2.4.0
 
 dev_dependencies:
   flutter_test:

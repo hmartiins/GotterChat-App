@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gotter_chat/app/commons/styles/tokens.dart';
+import 'package:web_socket_channel/web_socket_channel.dart';
 
 class InputMessageChat extends StatelessWidget {
-  const InputMessageChat({super.key});
+  const InputMessageChat({
+    required this.channel,
+    super.key,
+  });
+  final WebSocketChannel channel;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +32,9 @@ class InputMessageChat extends StatelessWidget {
                     fontSize: 14,
                   ),
                 ),
+                onSubmitted: (value) => {
+                  channel.sink.add(value),
+                },
               ),
             ),
             IconButton(

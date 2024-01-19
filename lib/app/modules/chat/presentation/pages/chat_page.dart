@@ -75,8 +75,9 @@ class _ChatPageState extends State<ChatPage> {
               ),
             ),
             InputMessageChat(
-              channel: channel,
               onSubmitted: (message) {
+                channel.sink.add(message);
+
                 messagesRecived.add(
                   ChatMessage(
                     message: message,

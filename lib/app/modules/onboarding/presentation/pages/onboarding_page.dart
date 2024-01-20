@@ -38,7 +38,7 @@ class OnboardingPage extends StatelessWidget {
               child: AppButton(
                 label: intl(context, 'onboarding.button'),
                 onPressed: () {
-                  Modular.to.navigate('/');
+                  Modular.to.navigate('/home');
                 },
               ),
             ),

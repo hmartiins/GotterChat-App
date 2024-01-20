@@ -19,7 +19,7 @@ class TopBarChat extends StatelessWidget {
                 color: Tp.colors.grey70,
               ),
               onPressed: () {
-                Modular.to.navigate('/');
+                Modular.to.navigate('/home');
               },
             ),
             const UserAvatar(

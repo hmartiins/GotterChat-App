@@ -23,7 +23,7 @@ class HomeChatMessage extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         onTap: () {
-          Modular.to.navigate('/chat');
+          Modular.to.navigate('/home/chat');
         },
         child: Padding(
           padding: EdgeInsets.symmetric(

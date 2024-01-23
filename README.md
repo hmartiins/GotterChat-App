@@ -5,6 +5,12 @@
   <p>💬 Application for exchanging messages in real time 📱</p>
 </div>
 
+<br>
+
+<a href="https://github.com/hmartiins/GotterChat-App/actions" >
+  <img src="https://github.com/hmartiins/GotterChat-App/workflows/GotterChat-App-Tests/badge.svg" alt=”Build Status”>
+</a>
+
 ## Project Description
 
 This is a Flutter-based chat application, allowing users to communicate instantly and efficiently. The app provides an intuitive and user-friendly interface, along with powerful features for an engaging chat experience.

@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:gotter_chat/app/commons/adapters/localizations/translate_app.dart';
+import 'package:gotter_chat/app/commons/entities/message_entity.dart';
 import 'package:gotter_chat/app/commons/enums/message_type.dart';
 import 'package:gotter_chat/app/commons/styles/tokens.dart';
 import 'package:gotter_chat/app/commons/widgets/complex/screen.dart';
@@ -8,8 +12,13 @@ import 'package:gotter_chat/app/modules/chat/presentation/widgets/top_bar_chat.d
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class ChatMessage {
-  ChatMessage({required this.message, required this.type});
+  ChatMessage({
+    required this.message,
+    required this.type,
+    required this.time,
+  });
   final String message;
+  final String time;
   final MessageType type;
 }
 
@@ -44,12 +53,26 @@ class _ChatPageState extends State<ChatPage> {
                 child: StreamBuilder(
                   stream: channel.stream,
                   builder: (context, snapshot) {
-                    final message = snapshot.data?.toString() ?? '';
-
                     if (snapshot.hasData) {
+                      final jsonMap = jsonDecode(snapshot.data.toString())
+                          as Map<String, dynamic>;
+                      final contentMap =
+                          jsonMap['content'] as Map<String, dynamic>;
+
+                      final messageEntity = MessageEntity(
+                        content: Content(
+                          message: contentMap['message'] as String,
+                          datetime: contentMap['datetime'] as String,
+                        ),
+                        id: jsonMap['id'] as String,
+                        roomId: jsonMap['roomId'] as String,
+                        userId: jsonMap['userId'] as String,
+                      );
+
                       messagesRecived.add(
                         ChatMessage(
-                          message: message,
+                          message: messageEntity.content.message,
+                          time: messageEntity.content.datetime,
                           type: MessageType.received,
                         ),
                       );
@@ -57,12 +80,15 @@ class _ChatPageState extends State<ChatPage> {
                     return ListView.builder(
                       itemCount: messagesRecived.length,
                       itemBuilder: (context, index) {
+                        final dateTime =
+                            DateTime.parse(messagesRecived[index].time);
+
                         return Column(
                           children: [
                             MessageChat(
                               message: messagesRecived[index].message,
                               time:
-                                  '${DateTime.now().hour}:${DateTime.now().minute}',
+                                  '${dateTime.hour.toString().padLeft(2, '0')}:${dateTime.minute.toString().padLeft(2, '0')}',
                               type: messagesRecived[index].type,
                             ),
                             SizedBox(height: Tp.size.ref12),
@@ -81,6 +107,7 @@ class _ChatPageState extends State<ChatPage> {
                 messagesRecived.add(
                   ChatMessage(
                     message: message,
+                    time: DateTime.now().toString(),
                     type: MessageType.sent,
                   ),
                 );
